@@ -22,4 +22,5 @@ urlpatterns = [
         ),
         name="swagger-ui",
     ),
+    path('enroll/', include('backend.urls'))
 ]
