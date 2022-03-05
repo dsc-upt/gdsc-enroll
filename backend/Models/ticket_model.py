@@ -10,6 +10,7 @@ class Ticket(models.Model):
     projects_desc = models.TextField(max_length=4000)
     prog_languages = models.CharField(max_length=150)
     prog_experience = models.TextField(max_length=2000)
+    # TODO mkae facebook a URL field
     facebook = models.CharField(max_length=200)
     discord = models.CharField(max_length=40)
     interests = models.TextField(max_length=2000)
