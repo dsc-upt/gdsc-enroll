@@ -4,6 +4,7 @@ from .team_model import Team
 
 
 class Ticket(models.Model):
+    # by default it will be the user who submits it
     user = models.OneToOneField(settings.AUTH_USER_MODEL,
                                 on_delete=models.CASCADE)
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
@@ -39,8 +40,14 @@ class Ticket(models.Model):
     university = models.CharField(max_length=30, choices=university_choices)
     # How did the user find out about GDSC
     find_out = models.TextField(max_length=500)
-    # Status of the ticket, True=Accepted
-    ticket_status = models.BooleanField(default=False)
+    # Status of the ticket
+    status_choices = (
+        ("rejected", "rejected"),
+        ("waiting", "waiting"),
+        ("accepted", "accepted"),
+    )
+    status = models.CharField(max_length=20, choices=status_choices,
+                              default='waiting')
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
