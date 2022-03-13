@@ -10,5 +10,5 @@ router.register(r"groups", GroupViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
-    path("/new-ticket/", include(new_ticket)),
+    path("new-ticket/", new_ticket),
 ]
