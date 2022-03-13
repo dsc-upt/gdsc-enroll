@@ -11,8 +11,8 @@ router.register(r"users", UserViewSet)
 router.register(r"groups", GroupViewSet)
 
 urlpatterns = [
-    path("", dashboard),
-    path("/", include(router.urls)),
+    path("dashboard/", dashboard),
+    path("", include(router.urls)),
     path("new-ticket/", new_ticket),
     path("thank-you/", thank_you)
 ]
