@@ -1,10 +1,15 @@
 from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.authentication import BasicAuthentication, SessionAuthentication
+from rest_framework.decorators import api_view, authentication_classes, permission_classes
+from rest_framework.permissions import IsAuthenticated
+
 from backend.Serializers.ticket_serializer import TicketSerializer
 from rest_framework.response import Response
 
 
 @api_view(['POST'])
+@authentication_classes([SessionAuthentication, BasicAuthentication])
+@permission_classes([IsAuthenticated])
 def new_ticket(request):
     serializer = TicketSerializer(data=request.data)
     if serializer.is_valid():
