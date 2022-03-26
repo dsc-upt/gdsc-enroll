@@ -16,4 +16,5 @@ urlpatterns = [
         ),
         name="swagger-ui",
     ),
+    path('auth/', include('auth_rest.urls')),
 ]
